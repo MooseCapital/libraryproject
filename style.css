@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Manjari;
+    font-size: 18px;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.container {
+    display: grid;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    min-height: 0;
+    min-width: 0;
+
+    grid-template: 1fr 5fr / 1fr;
+    overflow: hidden;
+}
+
+img {
+object-fit: cover;
+overflow: hidden;
+position: absolute;
+height: 100%;
+width: 100%;
+z-index: -1;
+}
+
+header {
+    display: grid;
+    min-height: 0;
+    min-width: 0;
+    padding: 30px;
+grid-template-rows: 1fr;
+grid-auto-flow: column;
+align-items: center;
+justify-content: space-between;
+}
+.title {
+    color: rgb(255, 255, 255, 0.5);
+    font-size: 70px;
+    font-family: Manjari;
+}
+.addto {
+    border: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: transparent;
+    background-color: rgb(255, 128, 128, 0);
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+}
+/*background: linear-gradient(135deg, #2196f3 0%, #1565c0 100%);*/
+.addto span {
+
+font-size: 60px;
+color: rgb(255, 255, 255, 1);
+font-family: Manjari;
+}
+
+.maincontent {
+
+display: grid;
+padding: 30px;
+grid-template-rows: 1fr 1fr;
+background-color: rgb(255, 128, 128, 0.0);
+    grid-template-columns: repeat(auto-fit, 300px);
+gap: 50px;
+justify-content: center;
+overflow: scroll;
+
+
+}
+
+.maincontent .book {
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+display: grid;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    min-height: 0;
+    min-width: 0;
+    padding: 10px;
+    grid-template-rows: 20px 210px 1fr 1fr 1fr 1fr ;
+justify-items: start;
+
+}
+.book .exit {
+font-weight: bold;
+    grid-row: 1 / 2;
+justify-self: end;
+font-size: 20px;
+}
+
+.book .bookcover {
+border-radius: 10px;
+height: 200px;
+width: 220px;
+background-color: mediumpurple;
+z-index: 1;
+grid-row: 2 / 3;
+    object-fit: fill;
+margin-top: 20px;
+opacity: 1;
+justify-self: center;
+}
+
+.book .booktitle {
+background-color: aqua;
+grid-row: 3 / 4;
+margin-left: 30px;
+font-weight: bold;
+}
+.book .bookauthor {
+background-color: purple;
+    grid-row: 4 / 5;
+    margin-left: 30px;
+}
+.book .bookpages {
+background-color: greenyellow;
+    grid-row: 5 / 6;
+    margin-left: 30px;
+}
+.book .bookread {
+background-color: salmon;
+    grid-row: 6/  7;
+    margin-left: 30px;
+    font-weight: lighter;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
