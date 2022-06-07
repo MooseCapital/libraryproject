@@ -2,15 +2,15 @@ let booktitle = document.querySelector(".booktitle");
 let bookauthor = document.querySelector(".bookauthor");
 let bookpages = document.querySelector(".bookpages");
 let bookread= document.querySelector(".bookread");
-const addButton = document.querySelector(".addto");
+const addButton = document.querySelector(".addbutton");
 let maincontent = document.querySelector(".maincontent");
 
+const addto = document.querySelector(".addto");
 
 
-
-
+addto.addEventListener("click", openTheForm);
 addButton.addEventListener("click", createClone);
-
+document.querySelector(".formexit").addEventListener("click", exitTheForm);
 
 function Book(title, author, pages, read, cover) {
     this.title = title;
@@ -97,8 +97,15 @@ clone.setAttribute("data-libraryindex", `${Library.length + 1}`)
 maincontent.appendChild(clone);
 } 
 
+function exitTheForm() {
+document.querySelector(".addbooksection").setAttribute("style", "display: none");
 
+}
 
+function openTheForm() {
+    document.querySelector(".addbooksection").setAttribute("style", "display: grid");
+
+}
 
 
 
