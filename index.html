@@ -19,38 +19,39 @@
         </button>
     </header>
     <div class="maincontent">
-        <div class="book">
-            <div class="exit">x</div>
-            <img src="images/hobbitcover.jpeg" class="bookcover" alt="">
+        <div class="book" data-libraryindex="0" >
+            <button class="exit">x</button>
             <div class="booktitle">title</div>
             <div class="bookauthor">author</div>
             <div class="bookpages">pages:</div>
             <div class="bookread">read</div>
         </div>
-
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
 
 
 </section>
 
-
+<section class="addbooksection" style="display: grid;">
+    <div class="bookform">
+        <div class="formheader">
+            <div class="formtitle">Add Book</div>
+            <button class="formexit">x</button>
+        </div>
+        <label for="b-title">
+            Book Title:
+            <input id="b-title" placeholder="Title" name="booktitle" class="formcontrol" type="text">
+        </label>
+        <label for="b-author">
+            Book Author:
+            <input id="b-author" placeholder="Title" name="booktitle" class="formcontrol" type="text">
+        </label>
+        <label for="b-pages">
+            Book pages:
+            <input id="b-pages" placeholder="Title" name="booktitle" class="formcontrol" type="text">
+        </label>
+        <button class="addbutton">Add</button>
+    </div>
+</section>
 
 
 
