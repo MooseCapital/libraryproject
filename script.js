@@ -4,15 +4,15 @@ let bookpages = document.querySelector(".bookpages");
 let bookread= document.querySelector(".bookread");
 const addButton = document.querySelector(".addbutton");
 let maincontent = document.querySelector(".maincontent");
-
+let book = document.querySelector(".book");
 const addto = document.querySelector(".addto");
-
+let exit = document.querySelectorAll(".exit");
 
 addto.addEventListener("click", openTheForm);
 addButton.addEventListener("click", createClone);
 document.querySelector(".formexit").addEventListener("click", exitTheForm);
 
-function Book(title, author, pages, read, cover) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -49,6 +49,65 @@ function addExampleBooks(bookobj, index) {
     }
 }
 addExampleBooks(Hobbit, 0);
+
+let btitle = document.querySelector("#b-title");
+let bauthor = document.querySelector("#b-author");
+let bpages = document.querySelector("#b-pages");
+let clone;
+let bookvar;
+let currentdatalib;
+let libindex = 0;
+
+
+function createClone() {
+clone = document.querySelector(".book").cloneNode("true");
+
+
+
+
+
+//when setting object name to title, remember to remove spaces
+bookvar = new Book(btitle.value.toString(),bauthor.value.toString(), bpages.value, false); //create new book object
+
+Library.push(bookvar) //adding the actual book to our array
+
+clone.setAttribute("data-libraryindex", `${Library.length - 1}`);
+
+maincontent.appendChild(clone); //adding content to the actual page
+
+
+
+document.querySelector(`[data-libraryindex='${Library.length - 1}'] .booktitle `).innerText = btitle.value;
+document.querySelector(`[data-libraryindex='${Library.length - 1}'] .bookauthor `).innerText = bauthor.value;
+document.querySelector(`[data-libraryindex='${Library.length - 1}'] .bookpages `).innerText = `Pages: ${bpages.value}`;
+
+
+
+btitle.value = "";
+bauthor.value = "";
+bpages.value = "";
+
+
+} 
+
+// function setInnerText() {
+// booktitle.innerText = Library[Library.length - 1].title;
+// bookauthor.innerText = Library[Library.length - 1].author;
+// bookpages.innerText = `Pages: ${Library[Library.length - 1].pages}`;
+//
+// }
+
+function exitTheForm() {
+document.querySelector(".addbooksection").setAttribute("style", "display: none");
+
+}
+
+function openTheForm() {
+    document.querySelector(".addbooksection").setAttribute("style", "display: grid");
+
+}
+
+
 
 //remember when pressing close button for book, to remove it from the array, match the data-libraryindex="0"  number to the array
 //index to remove the right one from the array.
@@ -90,22 +149,30 @@ maincontent.appendChild(book);
 
 }
 */
+let checkm = false;
+document.querySelector("#check").addEventListener("click", readCheck);
 
-function createClone() {
-let clone = document.querySelector(".book").cloneNode("true");
-clone.setAttribute("data-libraryindex", `${Library.length + 1}`)
-maincontent.appendChild(clone);
-} 
-
-function exitTheForm() {
-document.querySelector(".addbooksection").setAttribute("style", "display: none");
+function readCheck() {
+if (checkm == false) {
+    
+    checkm = true;
+    bookread.innerText = "Read";
+    console.log("true");
+} else if(checkm == true){
+    
+    checkm = false;
+    bookread.innerText = "Not Read";
+    console.log("false");
+}
 
 }
 
-function openTheForm() {
-    document.querySelector(".addbooksection").setAttribute("style", "display: grid");
+exit.forEach(function (item) {
+    item.addEventListener("click", () => {
+       item.parentNode.remove();
+        })
+});
 
-}
 
 
 
