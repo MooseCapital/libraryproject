@@ -95,12 +95,12 @@ function createClone() {
                 if (checkm[index] === false) {
 
                     checkm[index] = true;
-                    document.querySelector(`[data-libraryindex='${index}'] .bookread `).innerText = "Read";
+                    e.target.parentElement.querySelector(".bookread").innerText = "Read";
                     console.log("true");
                 } else if(checkm[index] === true){
 
                     checkm[index] = false;
-                    document.querySelector(`[data-libraryindex='${index}'] .bookread `).innerText = "Not Read";
+                    e.target.parentElement.querySelector(".bookread").innerText = "Not Read";
                     console.log("false");
                 }
             })
@@ -115,7 +115,7 @@ function createClone() {
 } 
 
 
-
+//document.querySelector(`[data-libraryindex='${index}'] .bookread `)
 
 function exitTheForm() {
 document.querySelector(".addbooksection").setAttribute("style", "display: none");
@@ -138,12 +138,12 @@ document.querySelectorAll("#check").forEach( (check, index) => {
         if (checkm[index] === false) {
 
             checkm[index] = true;
-            document.querySelector(`[data-libraryindex='${index}'] .bookread `).innerText = "Read";
+            e.target.parentElement.querySelector(".bookread").innerText = "Read";
             
         } else if(checkm[index] === true){
 
             checkm[index] = false;
-            document.querySelector(`[data-libraryindex='${index}'] .bookread `).innerText = "Not Read";
+            e.target.parentElement.querySelector(".bookread").innerText = "Not Read";
             
         }
     })
