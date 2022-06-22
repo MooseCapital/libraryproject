@@ -12,12 +12,13 @@ addto.addEventListener("click", openTheForm);
 addButton.addEventListener("click", createClone);
 document.querySelector(".formexit").addEventListener("click", exitTheForm);
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 Book.prototype.info = function () {
