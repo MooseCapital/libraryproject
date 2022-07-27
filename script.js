@@ -26,7 +26,8 @@ Book.prototype.info = function () {
 //"The" + title + "by" +  author
 const Hobbit = new Book("The Hobbit","J.R.R Tolkien", 295, false);
 console.log(Hobbit.info())
-
+// const Potter = new Book("harry potter", "JK rowling", 122, false);
+// const giver = new Book("The Giver", "something", 122, true)
 
 
 let Library = [];
@@ -41,10 +42,12 @@ function addExampleBooks(bookobj, index) {
     if (Library[index].read) {
         bookread.innerText = "Read";
     } else {
-        bookread.innerText = "Not read"
+        bookread.innerText = "Not Read"
     }
 }
 addExampleBooks(Hobbit, 0);
+// addExampleBooks(Potter, 1);
+// addExampleBooks(giver, 2)
 
 let btitle = document.querySelector("#b-title");
 let bauthor = document.querySelector("#b-author");
@@ -55,8 +58,13 @@ let bookvar;
 
 
 function createClone() {
+    if (!Library.length) {
+        console.log("no books to clone")
+
+        alert("No Books Available to Clone. Refresh the page and keep atleast one book in the future please!")
+    }
     clone = document.querySelector(".book").cloneNode("true");
-    checkm.push(false);
+
 
 
 
@@ -82,32 +90,6 @@ function createClone() {
     bauthor.value = "";
     bpages.value = "";
 
-    document.querySelectorAll(".book").forEach((item, index) => {
-        document.querySelectorAll(".exit").forEach((ex, index) => {
-            ex.addEventListener("click", (e) => {
-                e.target.parentElement.remove();
-            })
-        
-        })
-        document.querySelectorAll("#check").forEach( (check, index) => {
-            check.addEventListener("click", (e) => {
-                
-                if (checkm[index] === false) {
-
-                    checkm[index] = true;
-                    e.target.parentElement.querySelector(".bookread").innerText = "Read";
-                    console.log("true");
-                } else if(checkm[index] === true){
-
-                    checkm[index] = false;
-                    e.target.parentElement.querySelector(".bookread").innerText = "Not Read";
-                    console.log("false");
-                }
-            })
-        
-        }) 
-    })
-
 
 
     console.table(Library);
@@ -129,26 +111,47 @@ function openTheForm() {
 
 
 
-let checkm = [false];
+maincontent.addEventListener("click", (e) => {
+
+    let nearbook = e.target.closest(".book");
+    let maincontent = e.target.closest(".maincontent");
+    let mainarr;
+
+    if (nearbook) {
 
 
-document.querySelectorAll("#check").forEach( (check, index) => {
-    check.addEventListener("click", (e) => {
+        if (e.target.closest(".exit")) {
 
-        if (checkm[index] === false) {
+            Library.splice(nearbook.getAttribute("data-libraryindex"),1);
+            //localStorage.setItem('home', JSON.stringify([...home]));
 
-            checkm[index] = true;
-            e.target.parentElement.querySelector(".bookread").innerText = "Read";
-            
-        } else if(checkm[index] === true){
+            nearbook.remove();
 
-            checkm[index] = false;
-            e.target.parentElement.querySelector(".bookread").innerText = "Not Read";
-            
+            mainarr = Array.from(maincontent.children);
+            for (let i = 0; i < mainarr.length; i++) {
+                maincontent.children[i].setAttribute("data-libraryindex", i.toString())
+
+            }
+
+
+            console.log(Library)
         }
-    })
+
+        if (e.target.closest("#check")) {
+
+                if (e.target.closest("#check").checked) {
+                    nearbook.querySelector(".bookread").innerText = "Read";
+                } else {
+                    nearbook.querySelector(".bookread").innerText = "Not Read";
+                }
+
+        }
+
+    }
 
 })
+
+
 
 
 
