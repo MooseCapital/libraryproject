@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Manjari;
+    font-family: Manjari, serif;
     font-size: 18px;
 
 }
@@ -46,7 +46,7 @@ justify-content: space-between;
 .title {
     color: rgb(255, 255, 255, 0.5);
     font-size: 70px;
-    font-family: Manjari;
+    font-family: Manjari, serif;
 }
 .addto {
     border: none;
@@ -161,7 +161,7 @@ font-weight: bold;
 .addbooksection .bookform {
 background-color: white;
 display: grid;
-grid-template: 1fr 1fr 1fr 1fr 1fr/ 1fr;
+grid-template: auto 1fr  / 1fr;
 padding: 20px 40px;
 border-radius: 5px;
 width: max-content;
@@ -177,6 +177,13 @@ display: grid;
 grid-template: 1fr / 1fr 1fr;
 justify-items: start;
 align-items: center;
+}
+form {
+display: grid;
+    width: max-content;
+    max-width: 100vw;
+    max-height: 100vh;
+    padding: 20px 40px;
 }
 .formtitle {
 font-size: 40px;
@@ -204,9 +211,35 @@ input {
     background-color: transparent;
 
 }
-input:active {
+
+input:focus:invalid {
+all: unset;
+    border-radius: 0.25rem;
+    padding: 2px 5px;
+    font-size: 1rem;
+
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    background-color: transparent;
+border: 1px solid red;
+}
+
+#b-title {
 
 }
+
+#b-author {
+
+
+}
+
+#b-pages {
+
+
+}
+
+
 label {
 margin-top: 20px;
 

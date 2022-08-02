@@ -38,19 +38,21 @@
             <div class="formtitle">Add Book</div>
             <button class="formexit">x</button>
         </div>
-        <label for="b-title">
-            Book Title:
-            <input id="b-title" placeholder="Title" name="booktitle" class="formcontrol" type="text" required>
-        </label>
-        <label for="b-author">
-            Book Author:
-            <input id="b-author" placeholder="Author" name="booktitle" class="formcontrol" type="text">
-        </label>
-        <label for="b-pages">
-            Book pages:
-            <input id="b-pages" placeholder="Pages" name="booktitle" class="formcontrol" type="text">
-        </label>
-        <button class="addbutton">Add</button>
+        <form id="bookform1">
+            <label for="b-title">
+                Book Title:
+                <input id="b-title" placeholder="Title" name="booktitle" class="formcontrol" type="text" minlength="1" maxlength="100" required>
+            </label>
+            <label for="b-author">
+                Book Author:
+                <input id="b-author" placeholder="Author" name="booktitle" class="formcontrol" type="text" minlength="1" maxlength="100" required>
+            </label>
+            <label for="b-pages">
+                Book pages:
+                <input id="b-pages" type="number" placeholder="Pages" name="booktitle" class="formcontrol" min="1" max="2000" required>
+            </label>
+            <button class="addbutton" type="button" >Add</button>
+        </form>
     </div>
 </section>
 

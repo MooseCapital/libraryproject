@@ -4,12 +4,12 @@ let bookpages = document.querySelector(".bookpages");
 let bookread= document.querySelector(".bookread");
 const addButton = document.querySelector(".addbutton");
 let maincontent = document.querySelector(".maincontent");
-
+const form1 = document.querySelector("#bookform1");
 const addto = document.querySelector(".addto");
 
 
 addto.addEventListener("click", openTheForm);
-addButton.addEventListener("click", createClone);
+
 document.querySelector(".formexit").addEventListener("click", exitTheForm);
 
 function Book(title, author, pages, read) {
@@ -54,16 +54,33 @@ let bauthor = document.querySelector("#b-author");
 let bpages = document.querySelector("#b-pages");
 let clone;
 let bookvar;
+addButton.disabled = true;
+
+
+bpages.addEventListener("input", () => {
+    if (btitle.validity.valid && bauthor.validity.valid && bpages.validity.valid) {
+        addButton.disabled = false;
+    }
+
+})
 
 
 
-function createClone() {
+
+
+
+
+
+
+
+
+addButton.addEventListener("click",  function (event) {
     if (!Library.length) {
         console.log("no books to clone")
 
         alert("No Books Available to Clone. Refresh the page and keep atleast one book in the future please!")
     }
-    clone = document.querySelector(".book").cloneNode("true");
+    clone = document.querySelector(".book").cloneNode(true);
 
 
 
@@ -84,6 +101,11 @@ function createClone() {
     document.querySelector(`[data-libraryindex='${Library.length - 1}'] .bookauthor `).innerText = bauthor.value;
     document.querySelector(`[data-libraryindex='${Library.length - 1}'] .bookpages `).innerText = `Pages: ${bpages.value}`;
 
+    if (!btitle.validity.valid) {
+        event.preventDefault();
+
+    }
+    console.table(Library)
 
 
     btitle.value = "";
@@ -92,9 +114,8 @@ function createClone() {
 
 
 
-    console.table(Library);
-    
-} 
+    addButton.disabled = true;
+});
 
 
 //document.querySelector(`[data-libraryindex='${index}'] .bookread `)
