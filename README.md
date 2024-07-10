@@ -7,13 +7,13 @@
 <br>
 <img src="./images/librarypreview.webp" width="500px" height="auto">
 
-</div>
-
-
 >  This is an easy way to store read books in a library
 > <br>
 >  Project is from [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-library)
 > <br>
+</div>
+
+
 
 Originally created 6/4/22
 
